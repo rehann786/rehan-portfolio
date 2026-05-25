@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------
+   Global styles. Dark theme is the default and only theme.
+   ------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: theme('colors.ink');
+  color: theme('colors.chalk');
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle blueprint-style grid in the page background — fits the
+   "engineering / data science" theme. */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 199, 44, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 199, 44, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.coal');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.steel');
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.gold');
+}
+
+/* Selection highlight */
+::selection {
+  background: theme('colors.gold');
+  color: theme('colors.ink');
+}
+
+/* Reusable section heading accent */
+.section-kicker {
+  color: theme('colors.gold');
+  font-family: theme('fontFamily.mono');
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

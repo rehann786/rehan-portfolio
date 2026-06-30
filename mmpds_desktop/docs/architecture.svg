@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="710" viewBox="0 0 1200 710" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3d4756"/>
+    </marker>
+    <marker id="arg" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#9aa4b1"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="710" fill="#f4f6f9"/>
+  <text x="600" y="38" text-anchor="middle" font-size="25" font-weight="700" fill="#1f2933">MMPDS Material Selector — how the modular app works</text>
+  <line x1="708" y1="70" x2="708" y2="566" stroke="#d3d9e0" stroke-width="1.5"/>
+
+  <!-- ================= LEFT: ARCHITECTURE ================= -->
+  <text x="40" y="92" font-size="16" font-weight="700" fill="#37414f">Architecture · dependencies point inward</text>
+
+  <!-- main.py -->
+  <rect x="120" y="106" width="470" height="50" rx="9" fill="#d99a1c"/>
+  <text x="355" y="129" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">main.py — entry point</text>
+  <text x="355" y="147" text-anchor="middle" font-size="11.5" fill="#fff8e8">assembles the app · injects the model · starts the event loop</text>
+  <line x1="355" y1="156" x2="355" y2="181" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ui container -->
+  <rect x="48" y="182" width="612" height="108" rx="10" fill="#eaf0f8" stroke="#34568b" stroke-width="1.5"/>
+  <text x="60" y="202" font-size="13.5" font-weight="700" fill="#34568b">ui/  ·  Tkinter layer</text>
+  <rect x="64" y="210" width="330" height="68" rx="8" fill="#34568b"/>
+  <text x="229" y="234" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">main_window.py</text>
+  <text x="229" y="252" text-anchor="middle" font-size="10.5" fill="#dde6f4">3 screen classes + 353 patch fns</text>
+  <text x="229" y="267" text-anchor="middle" font-size="10.5" fill="#dde6f4">+ 172 assignments (original order)</text>
+  <rect x="404" y="210" width="118" height="68" rx="8" fill="#4a6fa5"/>
+  <text x="463" y="240" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">widgets.py</text>
+  <text x="463" y="257" text-anchor="middle" font-size="9.5" fill="#dde6f4">reusable Tk</text>
+  <rect x="532" y="210" width="120" height="68" rx="8" fill="#4a6fa5"/>
+  <text x="592" y="240" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">dialogs.py</text>
+  <text x="592" y="257" text-anchor="middle" font-size="9.5" fill="#dde6f4">toasts/popups</text>
+
+  <line x1="170" y1="290" x2="170" y2="321" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="545" y1="290" x2="545" y2="321" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- models -->
+  <rect x="48" y="322" width="300" height="96" rx="9" fill="#2f8f73"/>
+  <text x="198" y="345" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">models/app_state.py</text>
+  <text x="198" y="364" text-anchor="middle" font-size="10.5" fill="#e0f2eb">DefaultCombo · MaterialDatabase</text>
+  <text x="198" y="379" text-anchor="middle" font-size="10.5" fill="#e0f2eb">FastMaterialEngine · HistoryStore</text>
+  <text x="198" y="394" text-anchor="middle" font-size="10.5" fill="#e0f2eb">export-counter · SourceImageIndex</text>
+  <text x="198" y="409" text-anchor="middle" font-size="10" font-style="italic" fill="#bfe6d8">no Tkinter — independently testable</text>
+
+  <!-- calculations -->
+  <rect x="360" y="322" width="300" height="96" rx="9" fill="#4a9d4f"/>
+  <text x="510" y="345" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">calculations/conversions.py</text>
+  <text x="510" y="366" text-anchor="middle" font-size="10.5" fill="#e7f4e7">pure compute: unit conversions,</text>
+  <text x="510" y="381" text-anchor="middle" font-size="10.5" fill="#e7f4e7">number formatting, row/spec parsing,</text>
+  <text x="510" y="396" text-anchor="middle" font-size="10.5" fill="#e7f4e7">duplicate detection</text>
+  <text x="510" y="411" text-anchor="middle" font-size="10" font-style="italic" fill="#cdeccd">no Tkinter — independently testable</text>
+
+  <line x1="348" y1="370" x2="361" y2="370" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="170" y1="418" x2="170" y2="451" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="510" y1="418" x2="510" y2="451" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- config -->
+  <rect x="48" y="452" width="612" height="62" rx="9" fill="#596273"/>
+  <text x="354" y="476" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">config/settings.py</text>
+  <text x="354" y="497" text-anchor="middle" font-size="10.5" fill="#dfe3e9">constants · file paths · THEME / palettes · FONTS · defaults  —  leaf layer (imports only stdlib)</text>
+
+  <!-- main -> models curved (far left) -->
+  <path d="M120,140 C 30,150 28,300 47,360" fill="none" stroke="#3d4756" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <text x="22" y="250" font-size="10" fill="#5a6472" transform="rotate(-90 22 250)">main → models</text>
+
+  <!-- legend -->
+  <line x1="60" y1="542" x2="92" y2="542" stroke="#3d4756" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="100" y="546" font-size="11.5" fill="#37414f">imports / depends on   ·   inner layers never import ui or Tkinter</text>
+
+  <!-- ================= RIGHT: RUNTIME FLOW ================= -->
+  <text x="730" y="92" font-size="16" font-weight="700" fill="#37414f">Runtime flow  ·  python -m mmpds_desktop.main</text>
+
+  <g font-size="12">
+    <rect x="730" y="106" width="430" height="52" rx="8" fill="#ffffff" stroke="#d99a1c" stroke-width="2"/>
+    <circle cx="752" cy="132" r="12" fill="#d99a1c"/><text x="752" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+    <text x="776" y="128" font-size="12.5" font-weight="700" fill="#1f2933">enable_windows_dpi_awareness()</text>
+    <text x="776" y="146" font-size="10.5" fill="#5a6472">ui.widgets — sharp text on Windows</text>
+
+    <rect x="730" y="172" width="430" height="52" rx="8" fill="#ffffff" stroke="#2f8f73" stroke-width="2"/>
+    <circle cx="752" cy="198" r="12" fill="#2f8f73"/><text x="752" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+    <text x="776" y="194" font-size="12.5" font-weight="700" fill="#1f2933">db = MaterialDatabase()</text>
+    <text x="776" y="212" font-size="10.5" fill="#5a6472">models — loads / validates the CSV data</text>
+
+    <rect x="730" y="238" width="430" height="52" rx="8" fill="#ffffff" stroke="#34568b" stroke-width="2"/>
+    <circle cx="752" cy="264" r="12" fill="#34568b"/><text x="752" y="268" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+    <text x="776" y="260" font-size="12.5" font-weight="700" fill="#1f2933">app = MaterialSelectorApp(db)</text>
+    <text x="776" y="278" font-size="10.5" fill="#5a6472">ui — model injected in; builds the screens</text>
+
+    <rect x="730" y="304" width="430" height="52" rx="8" fill="#ffffff" stroke="#34568b" stroke-width="2"/>
+    <circle cx="752" cy="330" r="12" fill="#34568b"/><text x="752" y="334" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+    <text x="776" y="326" font-size="12.5" font-weight="700" fill="#1f2933">app.mainloop()</text>
+    <text x="776" y="344" font-size="10.5" fill="#5a6472">ui — Tk event loop runs the UI</text>
+
+    <rect x="730" y="370" width="430" height="58" rx="8" fill="#ffffff" stroke="#4a9d4f" stroke-width="2"/>
+    <circle cx="752" cy="399" r="12" fill="#4a9d4f"/><text x="752" y="403" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5</text>
+    <text x="776" y="392" font-size="12.5" font-weight="700" fill="#1f2933">User selects a material</text>
+    <text x="776" y="409" font-size="10.5" fill="#5a6472">FastMaterialEngine filters (models) +</text>
+    <text x="776" y="423" font-size="10.5" fill="#5a6472">convert_value() unit math (calculations)</text>
+
+    <rect x="730" y="442" width="430" height="58" rx="8" fill="#ffffff" stroke="#2f8f73" stroke-width="2"/>
+    <circle cx="752" cy="471" r="12" fill="#2f8f73"/><text x="752" y="475" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">6</text>
+    <text x="776" y="464" font-size="12.5" font-weight="700" fill="#1f2933">Export keyfile</text>
+    <text x="776" y="481" font-size="10.5" fill="#5a6472">HistoryStore + export-counter persist</text>
+    <text x="776" y="495" font-size="10.5" fill="#5a6472">state (models)</text>
+  </g>
+  <line x1="945" y1="158" x2="945" y2="171" stroke="#9aa4b1" stroke-width="2" marker-end="url(#arg)"/>
+  <line x1="945" y1="224" x2="945" y2="237" stroke="#9aa4b1" stroke-width="2" marker-end="url(#arg)"/>
+  <line x1="945" y1="290" x2="945" y2="303" stroke="#9aa4b1" stroke-width="2" marker-end="url(#arg)"/>
+  <line x1="945" y1="356" x2="945" y2="369" stroke="#9aa4b1" stroke-width="2" marker-end="url(#arg)"/>
+  <line x1="945" y1="428" x2="945" y2="441" stroke="#9aa4b1" stroke-width="2" marker-end="url(#arg)"/>
+
+  <!-- ================= FOOTER ================= -->
+  <rect x="48" y="586" width="1112" height="96" rx="10" fill="#ffffff" stroke="#d3d9e0" stroke-width="1.5"/>
+  <text x="604" y="614" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2933">1 file · 23,281 lines  →  7 modules</text>
+  <text x="604" y="638" text-anchor="middle" font-size="11.5" fill="#46505f">Code moved verbatim (line-level partition reconstructs the original byte-for-byte).</text>
+  <text x="604" y="657" text-anchor="middle" font-size="11.5" fill="#46505f">Verified namespace-equivalent to the original: identical class attributes, same "last-wins" method winners, equal constants.</text>
+  <text x="604" y="676" text-anchor="middle" font-size="11.5" fill="#46505f">config · calculations · models import cleanly with Tkinter absent — and 22 unit tests pass.</text>
+</svg>
